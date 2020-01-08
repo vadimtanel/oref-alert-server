@@ -1,7 +1,7 @@
 package com.vadimtanel.oref.configuration;
 
 import com.vadimtanel.oref.logger.ILogger;
-import com.vadimtanel.oref.service.DataFetcher;
+import com.vadimtanel.oref.service.DataFetcherImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -24,7 +24,7 @@ public class SchedulerConfiguration {
     ILogger logger;
 
     @Autowired
-    private DataFetcher dataFetcher;
+    private DataFetcherImpl dataFetcher;
 
     @Scheduled(fixedDelayString = "${live.fixedDelay.in.milliseconds}")
     public void pollingOrefLiveStatus() {

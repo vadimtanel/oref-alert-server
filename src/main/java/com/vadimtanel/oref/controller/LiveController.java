@@ -1,6 +1,6 @@
 package com.vadimtanel.oref.controller;
 
-import com.vadimtanel.oref.service.DataFetcher;
+import com.vadimtanel.oref.service.DataFetcherImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,11 +20,13 @@ import java.util.TimeZone;
  ******************************************************************************/
 
 @RestController
-@RequestMapping("/history")
+@RequestMapping(LiveController.BASE_URL)
 @CrossOrigin
 public class LiveController {
+    static final String BASE_URL = "api/live";
+
     @Autowired
-    DataFetcher dataFetcher;
+    DataFetcherImpl dataFetcher;
 
     @RequestMapping(value = "/",
             method = RequestMethod.GET,

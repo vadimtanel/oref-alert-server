@@ -1,10 +1,9 @@
 package com.vadimtanel.oref.controller;
 
-import com.vadimtanel.oref.service.DataFetcher;
+import com.vadimtanel.oref.service.DataFetcherImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,12 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
  ******************************************************************************/
 
 @RestController
-@RequestMapping("/history")
+@RequestMapping(HistoryController.BASE_URL)
 @CrossOrigin
 public class HistoryController {
+    static final String BASE_URL = "api/history";
 
     @Autowired
-    DataFetcher dataFetcher;
+    DataFetcherImpl dataFetcher;
 
     @RequestMapping(value = "/",
             method = RequestMethod.GET,

@@ -1,9 +1,8 @@
 package com.vadimtanel.oref.service;
 
-import com.vadimtanel.oref.handler.TimeHandler;
 import com.vadimtanel.oref.repository.Alert;
 import com.vadimtanel.oref.repository.AlertRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -13,6 +12,7 @@ import java.util.List;
  *  All rights reserved.
  ******************************************************************************/
 
+@Service
 public class AlertServiceImpl implements AlertService {
     private AlertRepository repository;
 

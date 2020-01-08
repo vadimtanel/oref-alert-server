@@ -24,8 +24,8 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        logger.Info("🤑🤑 Bring Me 🤑🤑");
-        System.out.println("🤑🤑 Bring Me 🤑🤑");
+        logger.Info("🤑🤑 Oref - Server 🤑🤑");
+        System.out.println("🤑🤑 Oref - Server 🤑🤑");
     }
 
 }

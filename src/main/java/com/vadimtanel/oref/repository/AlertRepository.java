@@ -16,10 +16,10 @@ import java.util.List;
 public interface AlertRepository extends CrudRepository<Alert, Long> {
     Alert findById(long id);
 
-    @Query("select a from Alert a where a.timeStamp > %?1")
-    List<Alert> findByTimeStamp(long timeStamp);
+    @Query("select a from Alert a where a.timeStamp > ?1")
+    List<Alert> findByTimeStamp(long timestamp);
 
-    @Query("select a from Alert a where a.location like %?1 and a.timeStamp > %?2")
+    @Query("select a from Alert a where a.location like %?1 and a.timeStamp > ?2")
     List<Alert> findByLocationAndTimeStamp(String location, long timeStamp);
 
 }

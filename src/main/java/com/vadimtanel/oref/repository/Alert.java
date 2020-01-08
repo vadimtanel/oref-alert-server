@@ -1,14 +1,6 @@
 package com.vadimtanel.oref.repository;
 
-import com.vadimtanel.oref.handler.TimeHandler;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.sql.Time;
-import java.util.Date;
+import javax.persistence.*;
 
 /*******************************************************************************
  *  Created by Vadim Tanel on 06/01/2020 18:29.
