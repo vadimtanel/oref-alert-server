@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import java.text.SimpleDateFormat;
+
 /*******************************************************************************
  *  Created by Vadim Tanel on 03/01/2020 0:47.
  *  Copyright © 2020 Vadim Tanel.
@@ -23,5 +25,10 @@ public class SpringConfig {
     @Bean
     public Logger getLogger() {
         return LoggerFactory.getLogger("vadimtanel-oref");
+    }
+
+    @Bean
+    public SimpleDateFormat stringToFormattedDate() {
+        return new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
     }
 }

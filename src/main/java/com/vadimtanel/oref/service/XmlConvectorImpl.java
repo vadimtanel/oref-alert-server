@@ -2,6 +2,8 @@ package com.vadimtanel.oref.service;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.vadimtanel.oref.logger.ILogger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -15,6 +17,8 @@ import java.util.List;
 
 @Service
 public class XmlConvectorImpl implements XmlConvector {
+    @Autowired
+    ILogger logger;
 
     @Override
     public String toJson(String xml) {
@@ -23,6 +27,7 @@ public class XmlConvectorImpl implements XmlConvector {
                                 .filter(x -> x.contains("<span"))
                                 .map(x -> x.trim())
                                 .toArray();
+
         JsonArray jsonArray = new JsonArray();
         for (int i=0; i< data.length; i+=3) {
             JsonObject jsonObject = new JsonObject();
@@ -31,6 +36,9 @@ public class XmlConvectorImpl implements XmlConvector {
             jsonObject.addProperty("city", data[i+2].toString().replace("<span class=\"span_area\">","").replace("</span>",""));
             jsonArray.add(jsonObject);
         }
-        return jsonArray.toString();
+
+        String json = jsonArray.toString();
+        logger.Info("XmlConvectorImpl json result: " + json);
+        return json;
     }
 }

@@ -4,10 +4,11 @@ import com.vadimtanel.oref.service.DataFetcherImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 
 /*******************************************************************************
  *  Created by Vadim Tanel on 03/01/2020 0:50.
@@ -16,20 +17,34 @@ import org.springframework.web.bind.annotation.RestController;
  ******************************************************************************/
 
 @RestController
-@RequestMapping(HistoryController.BASE_URL)
+@RequestMapping(ApiController.BASE_URL)
 @CrossOrigin
-public class HistoryController {
-    static final String BASE_URL = "api/history";
+public class ApiController {
+    static final String BASE_URL = "api";
 
     @Autowired
     DataFetcherImpl dataFetcher;
 
-    @RequestMapping(value = "/",
+    @Autowired
+    SimpleDateFormat dateFormat;
+
+    @RequestMapping(value = "/history",
+            method = RequestMethod.GET,
+            produces = "application/json")
+    public ResponseEntity<String> history(@RequestParam(name = "fromDate") String fromDateStr, @RequestParam(name = "toDate", required = false) String toDateStr) {
+        String jsonData = dataFetcher.getHistory(fromDateStr, toDateStr);
+        HttpStatus status = jsonData == null ? HttpStatus.BAD_GATEWAY : HttpStatus.OK;
+        ResponseEntity responseEntity = new ResponseEntity<String>(jsonData, status);
+        return responseEntity;
+    }
+
+    @RequestMapping(value = "/live",
             method = RequestMethod.GET,
             produces = "application/json")
     public ResponseEntity<String> history() {
-        String jsonData = dataFetcher.getData("https://www.oref.org.il/Shared/Ajax/GetAlarms.aspx?fromDate=01.12.2019");
-        ResponseEntity responseEntity = new ResponseEntity<String>(jsonData, HttpStatus.OK);
+        String jsonData = dataFetcher.getLive();
+        HttpStatus status = jsonData == null ? HttpStatus.BAD_GATEWAY : HttpStatus.OK;
+        ResponseEntity responseEntity = new ResponseEntity<String>(jsonData, status);
         return responseEntity;
     }
 

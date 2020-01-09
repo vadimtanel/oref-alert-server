@@ -7,5 +7,9 @@ package com.vadimtanel.oref.service;
  ******************************************************************************/
 
 public interface DataFetcher {
-    String getData(String path);
+    String getHistory(String fromDate);
+
+    String getHistory(String fromDate, String toDate);
+
+    String getLive();
 }
