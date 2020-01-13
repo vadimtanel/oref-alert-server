@@ -26,6 +26,13 @@ public class AlertServiceImpl implements AlertService {
     }
 
     @Override
+    public void saveAlerts(List<Alert> alerts) {
+        for(Alert alert : alerts) {
+            saveAlert(alert);
+        }
+    }
+
+    @Override
     public Alert getAlertById(long id) {
         return repository.findById(id);
     }

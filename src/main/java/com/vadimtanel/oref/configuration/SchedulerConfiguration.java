@@ -29,7 +29,7 @@ public class SchedulerConfiguration {
     @Scheduled(fixedDelayString = "${live.fixedDelay.in.milliseconds}")
     public void pollingOrefLiveStatus() {
         logger.Info(String.format("Scheduled started at: %s", dateTimeHandler.getCurrentUTCTime()));
-        dataFetcher.getHistory(dateTimeHandler.getCurrentUTCTime());
+        dataFetcher.getLiveAlerts();
         logger.Info(String.format("Scheduled finish at : %s", dateTimeHandler.getCurrentUTCTime()));
     }
 }

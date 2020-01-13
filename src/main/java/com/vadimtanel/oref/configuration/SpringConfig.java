@@ -26,9 +26,4 @@ public class SpringConfig {
     public Logger getLogger() {
         return LoggerFactory.getLogger("vadimtanel-oref");
     }
-
-    @Bean
-    public SimpleDateFormat stringToFormattedDate() {
-        return new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
-    }
 }

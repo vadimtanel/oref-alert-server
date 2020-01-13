@@ -22,6 +22,7 @@ public class XmlConvectorImpl implements XmlConvector {
 
     @Override
     public String toJson(String xml) {
+        logger.Info("Data received as xml: " + xml);
         String[] xmlRows = xml.trim().split("\r\n");
         Object[] data = Arrays.stream(xmlRows)
                                 .filter(x -> x.contains("<span"))

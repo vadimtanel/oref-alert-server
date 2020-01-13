@@ -13,6 +13,8 @@ import java.util.List;
 public interface AlertService {
     void saveAlert(Alert alert);
 
+    void saveAlerts(List<Alert> alerts);
+
     Alert getAlertById(long id);
 
     List<Alert> getAlertFromTimeStamp(long timeStamp);
