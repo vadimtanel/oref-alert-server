@@ -1,7 +1,7 @@
 package com.vadimtanel.oref.controller;
 
-import com.vadimtanel.oref.repository.Alert;
-import com.vadimtanel.oref.service.DataFetcherImpl;
+import com.vadimtanel.oref.dto.AlertDto;
+import com.vadimtanel.oref.service.AlertDataFetcherImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,25 +22,25 @@ public class ApiController {
     static final String BASE_URL = "api";
 
     @Autowired
-    DataFetcherImpl dataFetcher;
+    AlertDataFetcherImpl dataFetcher;
 
     @RequestMapping(value = "/history",
             method = RequestMethod.GET,
             produces = "application/json")
-    public ResponseEntity<List<Alert>> history(@RequestParam(name = "fromDate") String fromDateStr, @RequestParam(name = "toDate", required = false) String toDateStr) {
-        List<Alert> alerts = dataFetcher.getHistory(fromDateStr, toDateStr);
+    public ResponseEntity<List<AlertDto>> history(@RequestParam(name = "fromDate") String fromDateStr, @RequestParam(name = "toDate", required = false) String toDateStr) {
+        List<AlertDto> alerts = dataFetcher.getHistory(fromDateStr, toDateStr);
         HttpStatus status = alerts == null || alerts.size() == 0 ? HttpStatus.BAD_GATEWAY : HttpStatus.OK;
-        ResponseEntity responseEntity = new ResponseEntity<List<Alert>>(alerts, status);
+        ResponseEntity responseEntity = new ResponseEntity<List<AlertDto>>(alerts, status);
         return responseEntity;
     }
 
     @RequestMapping(value = "/live",
             method = RequestMethod.GET,
             produces = "application/json")
-    public ResponseEntity<List<Alert>> history() {
-        List<Alert> alerts = dataFetcher.getLiveAlerts();
+    public ResponseEntity<List<AlertDto>> history() {
+        List<AlertDto> alerts = dataFetcher.getLiveAlerts();
         HttpStatus status = alerts == null || alerts.size() == 0 ? HttpStatus.BAD_GATEWAY : HttpStatus.OK;
-        ResponseEntity responseEntity = new ResponseEntity<List<Alert>>(alerts, status);
+        ResponseEntity responseEntity = new ResponseEntity<List<AlertDto>>(alerts, status);
         return responseEntity;
     }
 

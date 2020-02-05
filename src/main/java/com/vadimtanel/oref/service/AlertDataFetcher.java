@@ -1,6 +1,6 @@
 package com.vadimtanel.oref.service;
 
-import com.vadimtanel.oref.repository.Alert;
+import com.vadimtanel.oref.dto.AlertDto;
 
 import java.util.List;
 
@@ -10,12 +10,12 @@ import java.util.List;
  *  All rights reserved.
  ******************************************************************************/
 
-public interface DataFetcher {
-    List<Alert> getHistory(String fromDate);
+public interface AlertDataFetcher {
+    List<AlertDto> getHistory(String fromDate);
 
-    List<Alert> fetchNewAlerts();
+    List<AlertDto> fetchNewAlerts();
 
-    List<Alert> getHistory(String fromDate, String toDate);
+    List<AlertDto> getHistory(String fromDate, String toDate);
 
-    List<Alert> getLiveAlerts();
+    List<AlertDto> getLiveAlerts();
 }

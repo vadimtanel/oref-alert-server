@@ -18,6 +18,8 @@ public class Alert {
     private String location;
     private String date;
     private String time;
+    private double latt;
+    private double longt;
 
     public Alert() {
         super();
@@ -29,6 +31,16 @@ public class Alert {
         this.location = location;
         this.date = date;
         this.time = time;
+    }
+
+    public Alert(long timeStamp, String title, String location, String date, String time, double latt, double longt) {
+        this.timeStamp = timeStamp;
+        this.title = title;
+        this.location = location;
+        this.date = date;
+        this.time = time;
+        this.latt = latt;
+        this.longt = longt;
     }
 
     public Long getId() {
@@ -79,6 +91,22 @@ public class Alert {
         this.time = time;
     }
 
+    public double getLatt() {
+        return latt;
+    }
+
+    public void setLatt(double latt) {
+        this.latt = latt;
+    }
+
+    public double getLongt() {
+        return longt;
+    }
+
+    public void setLongt(double longt) {
+        this.longt = longt;
+    }
+
     @Override
     public String toString() {
         return "Alert{" +
@@ -88,6 +116,8 @@ public class Alert {
                 ", location='" + location + '\'' +
                 ", date='" + date + '\'' +
                 ", time='" + time + '\'' +
+                ", latt=" + latt +
+                ", longt=" + longt +
                 '}';
     }
 }

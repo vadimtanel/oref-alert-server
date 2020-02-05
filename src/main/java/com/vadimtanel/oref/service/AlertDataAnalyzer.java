@@ -1,8 +1,7 @@
 package com.vadimtanel.oref.service;
 
-import com.vadimtanel.oref.repository.Alert;
+import com.vadimtanel.oref.dto.AlertDto;
 
-import java.text.ParseException;
 import java.util.List;
 
 /*******************************************************************************
@@ -11,11 +10,11 @@ import java.util.List;
  *  All rights reserved.
  ******************************************************************************/
 
-public interface DataAnalyzer {
-    List<Alert> analyzeLiveAlerts(String data);
+public interface AlertDataAnalyzer {
+    List<AlertDto> analyzeLiveAlerts(String data);
 
-    List<Alert> filterNewAlerts(List<Alert> alerts);
+    List<AlertDto> filterNewAlerts(List<AlertDto> alerts);
 
-    List<Alert> analyzeHistoryData(String historyData);
+    List<AlertDto> analyzeHistoryData(String historyData);
 
 }

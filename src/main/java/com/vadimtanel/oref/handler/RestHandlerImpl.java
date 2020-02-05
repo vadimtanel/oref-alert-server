@@ -37,6 +37,8 @@ public class RestHandlerImpl implements RestHandler {
             HttpEntity entity = body == null ? new HttpEntity(headers) : new HttpEntity(body, headers);
 
             response = restTemplate.exchange(url, method, entity, String.class);
+            String log = String.format("httpMethod: %s, url: %s, response-status-code: %s, response-body: %s", method, url, response.getStatusCode(), response.getBody());
+            logger.Info(log);
         } catch (Exception ex) {
             logger.Sever(ex.getMessage());
         }

@@ -1,5 +1,6 @@
 package com.vadimtanel.oref.service;
 
+import com.vadimtanel.oref.dto.AlertDto;
 import com.vadimtanel.oref.repository.Alert;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
 public interface AlertService {
     void saveAlert(Alert alert);
 
-    void saveAlerts(List<Alert> alerts);
+    void saveAlerts(List<AlertDto> alerts);
 
     Alert getAlertById(long id);
 

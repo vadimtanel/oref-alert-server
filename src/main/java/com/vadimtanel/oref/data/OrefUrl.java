@@ -15,5 +15,4 @@ public abstract class OrefUrl {
     public static String HISTORY_FORM_DATE = String.format("%s?%s=%%s",HISTORY, QUERY_PARAM_HISTORY_FROM_DATE);
     public static String HISTORY_FORM_DATE_TO_DATE = String.format("%s?%s=%%s&%s=%%s",HISTORY, QUERY_PARAM_HISTORY_FROM_DATE, QUERY_PARAM_HISTORY_TO_DATE);
 
-
 }

@@ -1,7 +1,10 @@
 package com.vadimtanel.oref.service;
 
+import com.vadimtanel.oref.dto.AlertDto;
+import com.vadimtanel.oref.dto.GeoPositionDto;
 import com.vadimtanel.oref.repository.Alert;
 import com.vadimtanel.oref.repository.AlertRepository;
+import com.vadimtanel.oref.repository.GeoPosition;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,10 +29,18 @@ public class AlertServiceImpl implements AlertService {
     }
 
     @Override
-    public void saveAlerts(List<Alert> alerts) {
-        for(Alert alert : alerts) {
+    public void saveAlerts(List<AlertDto> alerts) {
+        for(AlertDto alertDto : alerts) {
+            Alert alert = convertToAlert(alertDto);
             saveAlert(alert);
         }
+    }
+
+    private Alert convertToAlert(AlertDto alertDto) {
+        GeoPositionDto geoPositionDto = alertDto.getGeoPosition();
+        Alert alert = new Alert(alertDto.getTimeStamp(), alertDto.getTitle(), alertDto.getLocation(),
+                alertDto.getDate(), alertDto.getTime(), geoPositionDto.getLatt(), geoPositionDto.getLongt());
+        return alert;
     }
 
     @Override
