@@ -6,7 +6,6 @@ import com.vadimtanel.oref.dto.GeoPositionDto;
 import com.vadimtanel.oref.handler.DateTimeHandler;
 import com.vadimtanel.oref.handler.RestHandler;
 import com.vadimtanel.oref.logger.ILogger;
-import com.vadimtanel.oref.repository.Alert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -93,7 +92,11 @@ public class AlertDataFetcherImpl implements AlertDataFetcher {
     private String retrieveDataFromServer(String url) {
         ResponseEntity<String> response = restHandler.get(url);
         if (response == null || response.getStatusCode() != HttpStatus.OK) {
-            logger.Error("Error in DataFetcherImpl get History data with response code: " + response.getStatusCode());
+            String error = "Error in DataFetcherImpl get History data with response code: ";
+            if (response != null) {
+                error += response.getStatusCode();
+            }
+            logger.Error(error);
             return null;
         }
         String body = response.getBody();

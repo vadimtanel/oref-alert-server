@@ -38,6 +38,9 @@ public class AlertServiceImpl implements AlertService {
 
     private Alert convertToAlert(AlertDto alertDto) {
         GeoPositionDto geoPositionDto = alertDto.getGeoPosition();
+        if (geoPositionDto == null) {
+            geoPositionDto = new GeoPositionDto(alertDto.getLocation(), 0, 0);
+        }
         Alert alert = new Alert(alertDto.getTimeStamp(), alertDto.getTitle(), alertDto.getLocation(),
                 alertDto.getDate(), alertDto.getTime(), geoPositionDto.getLatt(), geoPositionDto.getLongt());
         return alert;
