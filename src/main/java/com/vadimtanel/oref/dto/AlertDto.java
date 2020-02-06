@@ -20,6 +20,15 @@ public class AlertDto {
     public AlertDto() {
     }
 
+    public AlertDto(AlertDto originalAlert, String location) {
+        this.timeStamp = originalAlert.timeStamp;
+        this.title = originalAlert.title;
+        this.location = location;
+        this.date = originalAlert.date;
+        this.time = originalAlert.time;
+        this.geoPosition = originalAlert.geoPosition;
+    }
+
     public AlertDto(long timeStamp, String title, String location, String date, String time) {
         this.timeStamp = timeStamp;
         this.title = title;

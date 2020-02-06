@@ -85,14 +85,14 @@ public class AlertDataAnalyzerImpl implements AlertDataAnalyzer {
         JsonElement jsonElement = JsonParser.parseString(json);
         if (!jsonElement.isJsonNull() && jsonElement.isJsonArray()) {
             for (JsonElement itemAlert: jsonElement.getAsJsonArray()) {
-                AlertDto alert = parseJsonHistoryToAlert(itemAlert);
-                results.add(alert);
+                List<AlertDto> alerts = parseJsonHistoryToAlert(itemAlert);
+                results.addAll(alerts);
             }
         }
         return results;
     }
 
-    private AlertDto parseJsonHistoryToAlert(JsonElement itemAlert) {
+    private List<AlertDto> parseJsonHistoryToAlert(JsonElement itemAlert) {
         JsonObject itemAlertObj = itemAlert.getAsJsonObject();
         String title = "Oref history alert";
         String city = itemAlertObj.get("city").getAsString();
@@ -102,8 +102,13 @@ public class AlertDataAnalyzerImpl implements AlertDataAnalyzer {
         String alertDateStr = String.format("%s %s", date, time);
         SimpleDateFormat dateFormat = dateTimeHandler.formattedHistory();
         long timeMilliSec = getTimeMilliSec(alertDateStr, dateFormat);
-
-        return new AlertDto(timeMilliSec, title, city, date, time + ":00");
+        String[] cities = city.split(",");
+        List<AlertDto> alertDtos = new ArrayList<>();
+        for (String singleCity: cities) {
+            AlertDto alert = new AlertDto(timeMilliSec, title, city, date, time + ":00");
+            alertDtos.add(alert);
+        }
+        return alertDtos;
     }
 
     private AlertDto parseJsonLiveToAlert(JsonElement itemAlert) {

@@ -57,6 +57,7 @@ public class AlertDataFetcherImpl implements AlertDataFetcher {
         }
         String historyData = retrieveDataFromServer(url);
         List<AlertDto> alerts = alertDataAnalyzer.analyzeHistoryData(historyData);
+        List<AlertDto> alertsWithGeoPosition = addGeoPosition(alerts);
         return alerts;
     }
 

@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
  ******************************************************************************/
 
 @Service
-public class GeoPositionFetcherImpl implements GeoPositionFetcher {
+public class GeocodeXyzFetcherImpl implements GeoPositionFetcher {
     @Autowired
     RestHandler restHandler;
 
@@ -27,7 +27,7 @@ public class GeoPositionFetcherImpl implements GeoPositionFetcher {
 
     private GeoPositionAnalyzer geoPositionAnalyzer;
 
-    public GeoPositionFetcherImpl(GeoPositionAnalyzer geoPositionAnalyzer) {
+    public GeocodeXyzFetcherImpl(GeoPositionAnalyzer geoPositionAnalyzer) {
         this.geoPositionAnalyzer = geoPositionAnalyzer;
     }
 
