@@ -38,14 +38,15 @@ public class GeoPositionServiceImpl implements GeoPositionService {
         }
 
         GeoPosition geoPosition = repository.findByLocation(location);
-        if (geoPosition == null) {
-            GeoPositionDto geoPositionDto = geoPositionFetcher.getGeoPosition(location);
-            if (geoPositionDto != null) {
-                geoPosition = new GeoPosition(geoPositionDto.getLocation(), geoPositionDto.getLatt(), geoPositionDto.getLongt());
-                repository.save(geoPosition);
-            }
-            return geoPositionDto;
+        if (geoPosition != null) {
+            return new GeoPositionDto(geoPosition.getLocation(), geoPosition.getLatt(), geoPosition.getLongt());
         }
-        return new GeoPositionDto(geoPosition.getLocation(), geoPosition.getLatt(), geoPosition.getLongt());
+
+ 3       GeoPositionDto geoPositionDto = geoPositionFetcher.getGeoPosition(location);
+        if (geoPositionDto != null) {
+            geoPosition = new GeoPosition(geoPositionDto.getLocation(), geoPositionDto.getLatt(), geoPositionDto.getLongt());
+            repository.save(geoPosition);
+        }
+        return geoPositionDto;
     }
 }
