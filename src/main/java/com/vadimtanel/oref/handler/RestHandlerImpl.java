@@ -53,6 +53,13 @@ public class RestHandlerImpl implements RestHandler {
 
     //region Get methods
     @Override
+    public ResponseEntity<String> getAsChrome(String url) {
+        MultiValueMap<String, String> headerMap = new LinkedMultiValueMap<String, String>();
+        headerMap.set("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36");
+        return get(url, headerMap);
+    }
+
+    @Override
     public ResponseEntity<String> get(String url) {
         MultiValueMap<String, String> headerMap = new LinkedMultiValueMap<String, String>();
         return get(url, headerMap);

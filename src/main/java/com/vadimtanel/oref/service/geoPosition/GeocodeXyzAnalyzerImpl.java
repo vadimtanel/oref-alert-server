@@ -1,15 +1,14 @@
-package com.vadimtanel.oref.service;
+package com.vadimtanel.oref.service.geoPosition;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.vadimtanel.oref.data.GeoCodeUrl;
 import com.vadimtanel.oref.dto.GeoPositionDto;
 import com.vadimtanel.oref.logger.ILogger;
-import com.vadimtanel.oref.service.GeoPositionAnalyzer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
-
-import java.text.SimpleDateFormat;
 
 /*******************************************************************************
  *  Created by Vadim Tanel on 02/02/2020 18:56.
@@ -17,12 +16,18 @@ import java.text.SimpleDateFormat;
  *  All rights reserved.
  ******************************************************************************/
 
+@Profile("GeocodeXyz")
 @Service
-public class GeoPositionAnalyzerImpl implements GeoPositionAnalyzer {
+public class GeocodeXyzAnalyzerImpl implements GeoPositionAnalyzer {
     @Autowired
     ILogger logger;
 
-    public GeoPositionAnalyzerImpl() {
+    public GeocodeXyzAnalyzerImpl() {
+    }
+
+    @Override
+    public String getUrl(String location) {
+        return String.format(GeoCodeUrl.CITY_TO_LANG_LATT, location);
     }
 
     @Override

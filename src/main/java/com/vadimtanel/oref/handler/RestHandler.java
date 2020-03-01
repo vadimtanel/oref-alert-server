@@ -14,6 +14,7 @@ public interface RestHandler {
     ResponseEntity<String> exchange(String url, HttpMethod method, MultiValueMap<String, String> headerMap, Object body);
     ResponseEntity<String> exchangeJson(String url, HttpMethod method, MultiValueMap<String, String> headerMap, Object body);
 
+    ResponseEntity<String> getAsChrome(String url);
     ResponseEntity<String> get(String url);
     ResponseEntity<String> get(String url, MultiValueMap<String, String> headerMap);
     ResponseEntity<String> getJson(String url);

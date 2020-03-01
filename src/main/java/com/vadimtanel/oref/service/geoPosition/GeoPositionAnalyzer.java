@@ -1,4 +1,4 @@
-package com.vadimtanel.oref.service;
+package com.vadimtanel.oref.service.geoPosition;
 
 import com.vadimtanel.oref.dto.GeoPositionDto;
 
@@ -9,5 +9,7 @@ import com.vadimtanel.oref.dto.GeoPositionDto;
  ******************************************************************************/
 
 public interface GeoPositionAnalyzer {
+    String getUrl(String location);
+
     GeoPositionDto analyzeGeoPositionData(String jsonData);
 }

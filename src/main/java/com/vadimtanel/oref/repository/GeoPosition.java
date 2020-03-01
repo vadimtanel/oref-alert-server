@@ -75,7 +75,7 @@ public class GeoPosition {
 
     @Override
     public String toString() {
-        return "GeoPosition{" +
+        return "geoPosition{" +
                 "id=" + id +
                 ", location='" + location + '\'' +
                 ", latt=" + latt +

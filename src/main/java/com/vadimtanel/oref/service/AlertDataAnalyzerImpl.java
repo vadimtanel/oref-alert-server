@@ -46,7 +46,9 @@ public class AlertDataAnalyzerImpl implements AlertDataAnalyzer {
         if (!jsonElement.isJsonNull() && jsonElement.isJsonArray()) {
             for (JsonElement itemAlert: jsonElement.getAsJsonArray()) {
                 AlertDto alert = parseJsonLiveToAlert(itemAlert);
-                results.add(alert);
+                if (alert.getLocation() != "בדיקה") {
+                    results.add(alert);
+                }
             }
         }
         return results;
@@ -105,7 +107,10 @@ public class AlertDataAnalyzerImpl implements AlertDataAnalyzer {
         String[] cities = city.split(",");
         List<AlertDto> alertDtos = new ArrayList<>();
         for (String singleCity: cities) {
-            AlertDto alert = new AlertDto(timeMilliSec, title, city, date, time + ":00");
+            if (singleCity == "בדיקה") {
+                continue;
+            }
+            AlertDto alert = new AlertDto(timeMilliSec, title, singleCity, date, time + ":00");
             alertDtos.add(alert);
         }
         return alertDtos;

@@ -1,4 +1,4 @@
-package com.vadimtanel.oref.service;
+package com.vadimtanel.oref.service.geoPosition;
 
 import com.vadimtanel.oref.dto.GeoPositionDto;
 import com.vadimtanel.oref.handler.RestHandler;
@@ -42,7 +42,7 @@ public class GeoPositionServiceImpl implements GeoPositionService {
             return new GeoPositionDto(geoPosition.getLocation(), geoPosition.getLatt(), geoPosition.getLongt());
         }
 
- 3       GeoPositionDto geoPositionDto = geoPositionFetcher.getGeoPosition(location);
+        GeoPositionDto geoPositionDto = geoPositionFetcher.getGeoPosition(location);
         if (geoPositionDto != null) {
             geoPosition = new GeoPosition(geoPositionDto.getLocation(), geoPositionDto.getLatt(), geoPositionDto.getLongt());
             repository.save(geoPosition);

@@ -1,4 +1,4 @@
-package com.vadimtanel.oref.service;
+package com.vadimtanel.oref.service.geoPosition;
 
 import com.vadimtanel.oref.dto.GeoPositionDto;
 

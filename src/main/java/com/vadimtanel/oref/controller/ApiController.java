@@ -29,7 +29,7 @@ public class ApiController {
             produces = "application/json")
     public ResponseEntity<List<AlertDto>> history(@RequestParam(name = "fromDate") String fromDateStr, @RequestParam(name = "toDate", required = false) String toDateStr) {
         List<AlertDto> alerts = dataFetcher.getHistory(fromDateStr, toDateStr);
-        HttpStatus status = alerts == null || alerts.size() == 0 ? HttpStatus.BAD_GATEWAY : HttpStatus.OK;
+        HttpStatus status = alerts == null ? HttpStatus.BAD_GATEWAY : HttpStatus.OK;
         ResponseEntity responseEntity = new ResponseEntity<List<AlertDto>>(alerts, status);
         return responseEntity;
     }
@@ -39,7 +39,7 @@ public class ApiController {
             produces = "application/json")
     public ResponseEntity<List<AlertDto>> history() {
         List<AlertDto> alerts = dataFetcher.getLiveAlerts();
-        HttpStatus status = alerts == null || alerts.size() == 0 ? HttpStatus.BAD_GATEWAY : HttpStatus.OK;
+        HttpStatus status = alerts == null ? HttpStatus.BAD_GATEWAY : HttpStatus.OK;
         ResponseEntity responseEntity = new ResponseEntity<List<AlertDto>>(alerts, status);
         return responseEntity;
     }

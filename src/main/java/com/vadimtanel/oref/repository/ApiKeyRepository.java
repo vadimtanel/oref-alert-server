@@ -3,14 +3,19 @@ package com.vadimtanel.oref.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /*******************************************************************************
- *  Created by Vadim Tanel on 02/02/2020 18:58.
+ *  Created by Vadim Tanel on 27/02/2020 23:21.
  *  Copyright © 2020 Vadim Tanel.
  *  All rights reserved.
  ******************************************************************************/
 
 @Repository
-public interface GeoPositionRepository extends CrudRepository<GeoPosition, Long> {
-    GeoPosition findById(long id);
-    GeoPosition findByLocation(String location);
+public interface ApiKeyRepository extends CrudRepository<ApiKey, Long> {
+    ApiKey findById(long id);
+
+    ApiKey findByKey(String key);
+
+    ApiKey findByName(String name);
 }

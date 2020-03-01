@@ -6,11 +6,15 @@ import com.vadimtanel.oref.dto.GeoPositionDto;
 import com.vadimtanel.oref.handler.DateTimeHandler;
 import com.vadimtanel.oref.handler.RestHandler;
 import com.vadimtanel.oref.logger.ILogger;
+import com.vadimtanel.oref.service.geoPosition.GeoPositionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -55,6 +59,9 @@ public class AlertDataFetcherImpl implements AlertDataFetcher {
             url = String.format(OrefUrl.HISTORY_FORM_DATE_TO_DATE, fromDate, toDate);
         }
         String historyData = retrieveDataFromServer(url);
+        if (historyData == null) {
+            return new ArrayList<>();
+        }
         List<AlertDto> alerts = alertDataAnalyzer.analyzeHistoryData(historyData);
         List<AlertDto> alertsWithGeoPosition = addGeoPosition(alerts);
         return alertsWithGeoPosition;
@@ -64,20 +71,21 @@ public class AlertDataFetcherImpl implements AlertDataFetcher {
     public List<AlertDto> getLiveAlerts() {
         ResponseEntity<String> response = restHandler.get(OrefUrl.LIVE);
         if (response == null || response.getStatusCode() != HttpStatus.OK) {
-            logger.Error("Error in DataFetcherImpl get Live data with response code: " + response.getStatusCode());
-            return null;
+            String responseCode = response != null ? response.getStatusCode().toString() : "";
+            logger.Error("Error in DataFetcherImpl get Live data with response code: " + responseCode);
+            return new ArrayList<>();
         }
         String json = response.getBody().trim();
         List<AlertDto> alerts = alertDataAnalyzer.analyzeLiveAlerts(json);
-        return alerts;
+        List<AlertDto> alertsWithGeoPosition = addGeoPosition(alerts);
+        return alertsWithGeoPosition;
     }
 
     @Override
     public List<AlertDto> fetchNewAlerts() {
         List<AlertDto> alerts = getLiveAlerts();
         List<AlertDto> newAlerts = alertDataAnalyzer.filterNewAlerts(alerts);
-        List<AlertDto> alertsWithGeoPosition = addGeoPosition(newAlerts);
-        alertService.saveAlerts(alertsWithGeoPosition);
+        alertService.saveAlerts(newAlerts);
         return newAlerts;
     }
 
@@ -90,7 +98,7 @@ public class AlertDataFetcherImpl implements AlertDataFetcher {
     }
 
     private String retrieveDataFromServer(String url) {
-        ResponseEntity<String> response = restHandler.get(url);
+        ResponseEntity<String> response = restHandler.getAsChrome(url);
         if (response == null || response.getStatusCode() != HttpStatus.OK) {
             String error = "Error in DataFetcherImpl get History data with response code: ";
             if (response != null) {
