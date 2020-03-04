@@ -4,18 +4,9 @@
     <list default="true" id="3b497abe-5936-43fd-b569-49784d94e1c6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/configuration/SchedulerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/configuration/SchedulerConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/controller/ApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/controller/ApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/repository/ApiKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/repository/ApiKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/AlertDataAnalyzerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/AlertDataAnalyzerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/AlertDataFetcherImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/AlertDataFetcherImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/AlertServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/AlertServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/XmlConvectorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/XmlConvectorImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/apiKey/ApiKeyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/apiKey/ApiKeyServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/geoPosition/GeoPositionFetcherImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/geoPosition/GeoPositionFetcherImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/geoPosition/GeoPositionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/geoPosition/GeoPositionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/geoPosition/GeocodeXyzAnalyzerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/geoPosition/GeocodeXyzAnalyzerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/geoPosition/HereapiComAnalyzerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/geoPosition/HereapiComAnalyzerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/temp/A.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/temp/B.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/temp/C.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,15 +21,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/geoPosition/HereapiComAnalyzerImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="47" column="22" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
+            <state relative-caret-position="682">
+              <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1221#1222#0" expanded="true" />
-                <element signature="e#1308#1309#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -47,20 +36,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/apiKey/ApiKeyService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="176">
+              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/AlertDataAnalyzer.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/repository/ApiKey.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="308">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
         </entry>
@@ -68,7 +54,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/geoPosition/GeoPositionFetcherImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
+            <state relative-caret-position="792">
               <caret line="42" column="30" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -267,8 +253,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -301,6 +285,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="oref" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fetcher" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oref-alert-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="oref" type="462c0819:PsiDirectoryNode" />
+              <item name="_temp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fetcher" type="b2602c69:ProjectViewProjectNode" />
@@ -399,15 +392,6 @@
               <item name="oref-alert-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="oref" type="462c0819:PsiDirectoryNode" />
-              <item name="temp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fetcher" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oref-alert-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -420,6 +404,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -494,10 +480,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18869936" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19083156" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -506,7 +491,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.4127844" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4127844" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1100,6 +1085,33 @@ Vadim.toString()</expression-string>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/geoPosition/HereapiComAnalyzerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="682">
+          <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/apiKey/ApiKeyService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/geoPosition/GeoPositionFetcherImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="42" column="30" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/configuration/InitPrivate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="572">
@@ -1162,37 +1174,8 @@ Vadim.toString()</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/repository/ApiKey.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="43" lean-forward="true" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/apiKey/ApiKeyService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/geoPosition/GeoPositionFetcherImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="42" column="30" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vadimtanel/oref/service/geoPosition/HereapiComAnalyzerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="47" column="22" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1221#1222#0" expanded="true" />
-            <element signature="e#1308#1309#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="308">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>
