@@ -26,12 +26,12 @@ import java.util.stream.Collectors;
 @Service
 public class AlertDataAnalyzerImpl implements AlertDataAnalyzer {
     @Autowired
-    ILogger logger;
+    private ILogger logger;
 
     @Autowired
-    DateTimeHandler dateTimeHandler;
+    private DateTimeHandler dateTimeHandler;
 
-    private XmlConvector xmlConvector;
+    private final XmlConvector xmlConvector;
     private long lastAlarmTimeStamp;
 
     public AlertDataAnalyzerImpl(XmlConvector xmlConvector){

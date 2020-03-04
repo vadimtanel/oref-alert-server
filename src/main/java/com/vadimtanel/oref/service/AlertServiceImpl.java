@@ -17,7 +17,8 @@ import java.util.List;
 
 @Service
 public class AlertServiceImpl implements AlertService {
-    private AlertRepository repository;
+
+    private final AlertRepository repository;
 
     public AlertServiceImpl(AlertRepository repository) {
         this.repository = repository;

@@ -17,7 +17,7 @@ import java.util.Arrays;
 @Service
 public class XmlConvectorImpl implements XmlConvector {
     @Autowired
-    ILogger logger;
+    private ILogger logger;
 
     @Override
     public String toJson(String xml) {

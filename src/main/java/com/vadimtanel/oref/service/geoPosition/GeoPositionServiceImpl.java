@@ -18,10 +18,10 @@ import org.springframework.stereotype.Service;
 public class GeoPositionServiceImpl implements GeoPositionService {
 
     @Autowired
-    RestHandler restHandler;
+    private RestHandler restHandler;
 
     @Autowired
-    ILogger logger;
+    private ILogger logger;
 
     private GeoPositionRepository repository;
     private GeoPositionFetcher geoPositionFetcher;
@@ -46,7 +46,13 @@ public class GeoPositionServiceImpl implements GeoPositionService {
         if (geoPositionDto != null) {
             geoPosition = new GeoPosition(geoPositionDto.getLocation(), geoPositionDto.getLatt(), geoPositionDto.getLongt());
             repository.save(geoPosition);
+        } else {
+            geoPositionDto = defoultGeoPosition();
         }
         return geoPositionDto;
+    }
+
+    private GeoPositionDto defoultGeoPosition() {
+        return new GeoPositionDto("Israel" , 31.0461, 34.8516);
     }
 }

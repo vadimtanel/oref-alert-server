@@ -2,6 +2,8 @@ package com.vadimtanel.oref.service.apiKey;
 
 import com.vadimtanel.oref.repository.ApiKey;
 import com.vadimtanel.oref.repository.ApiKeyRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /*******************************************************************************
  *  Created by Vadim Tanel on 27/02/2020 23:33.
@@ -9,9 +11,10 @@ import com.vadimtanel.oref.repository.ApiKeyRepository;
  *  All rights reserved.
  ******************************************************************************/
 
+@Service
 public class ApiKeyServiceImpl implements ApiKeyService {
 
-    private ApiKeyRepository apiKeyRepository;
+    private final ApiKeyRepository apiKeyRepository;
 
     public ApiKeyServiceImpl(ApiKeyRepository apiKeyRepository) {
         this.apiKeyRepository = apiKeyRepository;

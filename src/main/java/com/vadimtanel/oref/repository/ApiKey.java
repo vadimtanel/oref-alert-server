@@ -1,9 +1,6 @@
 package com.vadimtanel.oref.repository;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /*******************************************************************************
  *  Created by Vadim Tanel on 06/01/2020 18:29.
@@ -16,6 +13,7 @@ public class ApiKey {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(name="apiKey", nullable = false)
     private String key;
     private String name;
     private String site;
@@ -26,6 +24,10 @@ public class ApiKey {
         super();
     }
 
+    public ApiKey(Long id) {
+        this.id = id;
+    }
+
     public ApiKey(String key, String name, String site, String user, String password) {
         this.key = key;
         this.name = name;
@@ -34,14 +36,6 @@ public class ApiKey {
         this.password = password;
     }
 
-    public ApiKey(Long id, String key, String name, String site, String user, String password) {
-        this.id = id;
-        this.key = key;
-        this.name = name;
-        this.site = site;
-        this.user = user;
-        this.password = password;
-    }
 
     public Long getId() {
         return id;
@@ -89,5 +83,17 @@ public class ApiKey {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "ApiKey{" +
+                "id=" + id +
+                ", key='" + key + '\'' +
+                ", name='" + name + '\'' +
+                ", site='" + site + '\'' +
+                ", user='" + user + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

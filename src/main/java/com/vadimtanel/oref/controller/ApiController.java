@@ -22,7 +22,7 @@ public class ApiController {
     static final String BASE_URL = "api";
 
     @Autowired
-    AlertDataFetcherImpl dataFetcher;
+    private AlertDataFetcherImpl dataFetcher;
 
     @RequestMapping(value = "/history",
             method = RequestMethod.GET,

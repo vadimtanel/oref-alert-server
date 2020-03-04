@@ -17,10 +17,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class GeoPositionFetcherImpl implements GeoPositionFetcher {
     @Autowired
-    RestHandler restHandler;
+    private RestHandler restHandler;
 
     @Autowired
-    ILogger logger;
+    private ILogger logger;
 
     private GeoPositionAnalyzer geoPositionAnalyzer;
 
@@ -31,6 +31,10 @@ public class GeoPositionFetcherImpl implements GeoPositionFetcher {
     @Override
     public GeoPositionDto getGeoPosition(String cityName) {
         String jsonData = fetchGeoPositionData(cityName);
+        if (jsonData == null) {
+            return null;
+        }
+
         GeoPositionDto geoPositionDto = geoPositionAnalyzer.analyzeGeoPositionData(jsonData);
         if (geoPositionDto == null) {
             return null;

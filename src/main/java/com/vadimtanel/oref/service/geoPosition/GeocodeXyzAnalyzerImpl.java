@@ -3,6 +3,7 @@ package com.vadimtanel.oref.service.geoPosition;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
 import com.vadimtanel.oref.data.GeoCodeUrl;
 import com.vadimtanel.oref.dto.GeoPositionDto;
 import com.vadimtanel.oref.logger.ILogger;
@@ -20,7 +21,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class GeocodeXyzAnalyzerImpl implements GeoPositionAnalyzer {
     @Autowired
-    ILogger logger;
+    private ILogger logger;
 
     public GeocodeXyzAnalyzerImpl() {
     }
@@ -32,17 +33,25 @@ public class GeocodeXyzAnalyzerImpl implements GeoPositionAnalyzer {
 
     @Override
     public GeoPositionDto analyzeGeoPositionData(String jsonData) {
-        JsonElement jsonElement = JsonParser.parseString(jsonData);
-        JsonObject itemObj = jsonElement.getAsJsonObject();
-        if (itemObj.getAsJsonObject("error") != null) {
-            return null;
-        }
+        GeoPositionDto geoPositionDto = null;
 
-        JsonObject standardObj = itemObj.getAsJsonObject("standard");
-        String city = standardObj.get("city").getAsString();
-        String latt = itemObj.get("latt").getAsString();
-        String longt = itemObj.get("longt").getAsString();
-        GeoPositionDto geoPositionDto = new GeoPositionDto(city, Double.parseDouble(latt), Double.parseDouble(longt));
+        try {
+            JsonElement jsonElement = JsonParser.parseString(jsonData);
+            JsonObject itemObj = jsonElement.getAsJsonObject();
+            if (itemObj.getAsJsonObject("error") != null) {
+                return null;
+            }
+
+            JsonObject standardObj = itemObj.getAsJsonObject("standard");
+            String city = standardObj.get("city").getAsString();
+            String latt = itemObj.get("latt").getAsString();
+            String longt = itemObj.get("longt").getAsString();
+            geoPositionDto = new GeoPositionDto(city, Double.parseDouble(latt), Double.parseDouble(longt));
+        } catch (JsonSyntaxException ex) {
+            logger.Error("JsonSyntaxException occurred in HereapiComAnalyzerImpl.analyzeGeoPositionData: " + ex);
+        } catch (Exception ex) {
+            logger.Error("Exception occurred in HereapiComAnalyzerImpl.analyzeGeoPositionData: " + ex);
+        }
         return geoPositionDto;
     }
 }

@@ -27,17 +27,17 @@ import java.util.List;
 @Service
 public class AlertDataFetcherImpl implements AlertDataFetcher {
     @Autowired
-    RestHandler restHandler;
+    private RestHandler restHandler;
 
     @Autowired
-    ILogger logger;
+    private ILogger logger;
 
     @Autowired
-    DateTimeHandler dateTimeHandler;
+    private DateTimeHandler dateTimeHandler;
 
-    private AlertDataAnalyzer alertDataAnalyzer;
-    private AlertService alertService;
-    private GeoPositionService geoPositionService;
+    private final AlertDataAnalyzer alertDataAnalyzer;
+    private final AlertService alertService;
+    private final GeoPositionService geoPositionService;
 
     public AlertDataFetcherImpl(AlertDataAnalyzer alertDataAnalyzer, AlertService alertService, GeoPositionService geoPositionService) {
         this.alertDataAnalyzer = alertDataAnalyzer;
@@ -71,7 +71,7 @@ public class AlertDataFetcherImpl implements AlertDataFetcher {
     public List<AlertDto> getLiveAlerts() {
         ResponseEntity<String> response = restHandler.get(OrefUrl.LIVE);
         if (response == null || response.getStatusCode() != HttpStatus.OK) {
-            String responseCode = response != null ? response.getStatusCode().toString() : "";
+            String responseCode = response != null ? response.getStatusCode().toString() : "No response";
             logger.Error("Error in DataFetcherImpl get Live data with response code: " + responseCode);
             return new ArrayList<>();
         }

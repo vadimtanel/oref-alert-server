@@ -22,13 +22,13 @@ import java.util.stream.Collectors;
 @EnableScheduling
 public class SchedulerConfiguration {
     @Autowired
-    ILogger logger;
+    private ILogger logger;
 
     @Autowired
     private AlertDataFetcherImpl dataFetcher;
 
     @Autowired
-    DateTimeHandler dateTimeHandler;
+    private DateTimeHandler dateTimeHandler;
 
     @Scheduled(fixedDelayString = "${live.fixedDelay.in.milliseconds}")
     public void pollingOrefLiveStatus() {
